@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import LoginForm from './LoginForm'
 import { Button } from '../ui/button'
 import SignupForm from './SignupForm'
+import Link from 'next/link'
+import ResetPassword from './ResetPassword'
 
 const AuthForm = () => {
   const [mode, setMode] = useState('login')
@@ -34,7 +36,7 @@ const AuthForm = () => {
               className="p-0"
               onClick={() => setMode('signup')}
             >
-              Need an accoount? Sign up
+              Need an account? Sign up
             </Button>
             <Button
               variant="link"
@@ -49,7 +51,7 @@ const AuthForm = () => {
       {mode === 'signup' && (
         <>
           <SignupForm />
-          <div className="text-center flex justify-between">
+          <div className="text-center">
             <Button
               variant="link"
               className="p-0"
@@ -58,9 +60,39 @@ const AuthForm = () => {
               Alredy have an account? Login
             </Button>
           </div>
+          <p className="px-8 text-center text-sm text-muted-foreground">
+            By continuing, you agree to our{' '}
+            <Link
+              href="/terms"
+              className="underline underline-offset-4 hover:text-primary"
+            >
+              Terms of Use
+            </Link>{' '}
+            and{' '}
+            <Link
+              href="/privacy"
+              className="underline underline-offset-4 hover:text-primary"
+            >
+              Privacy Policy
+            </Link>
+            .
+          </p>
         </>
       )}
-      {mode === 'reset' && <span>reset password form</span>}
+      {mode === 'reset' && (
+        <>
+          <ResetPassword />
+          <div className="text-center">
+            <Button
+              variant="link"
+              className="p-0"
+              onClick={() => setMode('login')}
+            >
+              Back to Login
+            </Button>
+          </div>
+        </>
+      )}
     </div>
   )
 }
