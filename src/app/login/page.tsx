@@ -8,7 +8,7 @@ const AuthenticationPage = () => {
   return (
     <main className="h-screen grid grid-cols-2 relative">
       <div className="w-full h-[30%] bg-gradient-to-t from-transparent to-black/50 absolute top-0 left-0 z-10" />
-      <div className="w-full h-[40%] bg-gradient-to-b from-transparent to-black/50 absolute bottom-0 left-0 z-10" />
+      <div className="w-full h-[20%] bg-gradient-to-b from-transparent to-black/50 absolute bottom-0 left-0 z-10" />
 
       <div className="relative w-full flex flex-col bg-muted p-10 text-primary-foreground">
         <Image
